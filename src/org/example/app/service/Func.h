@@ -3,4 +3,6 @@
 
 int run();
 
+int random_num(int min, int max);
+
 #endif
