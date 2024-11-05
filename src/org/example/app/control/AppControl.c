@@ -1,17 +1,17 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#include "Func.h"
+#include "../service/Func.h"
 
 char *change_c_text(char str1[], char str2[], int search, int replace) {
-    // Выделение памяти для новой строки
+    // Створення пам'яті для масиву
     char *new_str = (char *) malloc((strlen(str1) + 1) * sizeof(char));
     int len1 = strlen(str1);
     int len2 = strlen(str2);
 
     if (search <= 0 || search > len1 || replace <= 0 || replace > len2) {
         printf("Index out of array!\n");
-        return NULL; // Предотвращаем выход за границы
+        return NULL; // коли вихід за границі масиву
     }
     if (!new_str) {
         printf("Memory allocation error!\n");
@@ -20,7 +20,7 @@ char *change_c_text(char str1[], char str2[], int search, int replace) {
     int replace_index;
     for (int i = 0; i < len1; i++) {
         if ((i + 1) % search == 0) {
-            // Индекс с циклическим смещением для замены
+            // Індекс з циклічним зміщенням
             replace_index = (search + replace - 1) % len2;
             new_str[i] = str2[replace_index];
         } else {
