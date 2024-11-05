@@ -4,7 +4,7 @@
 #include "service/Func.h"
 
 int main(void) {
-    srand(time(NULL));
+    // srand(time(NULL));
     run();
     return 0;
 }
